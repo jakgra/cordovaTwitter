@@ -168,7 +168,7 @@ public class TwitterPlugin extends CordovaPlugin {
 
     }
 
-    private void composeTweet(String newStatus, CallbackContext callbackContext) {
+    private void composeTweet(JSONObject data, CallbackContext callbackContext) {
 
         // Create intent using ACTION_VIEW and a normal Twitter url:
         // Initializes the parameters
