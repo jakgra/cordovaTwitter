@@ -202,7 +202,7 @@ public class TwitterPlugin extends CordovaPlugin {
             tweetUrl.appendQueryParameter("image", imageAttach);
         }
 
-        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(tweetUrl));
+        Intent intent = new Intent(Intent.ACTION_VIEW, tweetUrl.build());
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         // Narrow down to official Twitter app, if available:
         List<ResolveInfo> matches = context.getPackageManager().queryIntentActivities(intent, 0);
