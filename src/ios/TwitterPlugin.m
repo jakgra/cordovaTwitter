@@ -6,11 +6,27 @@
 //  Modify by Jesus Torres on 03/23/14.
 
 #import "TwitterPlugin.h"
-#import <Cordova/CDVJSON.h>
 #import <Cordova/CDVAvailability.h>
 #import <Social/Social.h>
 
 #define TWITTER_URL @"https://api.twitter.com/1.1/"
+
+@interface NSString (CDVJSONSerializing)
+- (id)JSONObject;
+@end
+
+@implementation NSString (CDVJSONSerializing)
+- (id)JSONObject {
+    NSError * error = nil;
+    id dict = [NSJSONSerialization JSONObjectWithData:[self dataUsingEncoding:NSUTF8StringEncoding]
+                                                         options:NSJSONReadingMutableContainers
+                                                           error:&error];
+    if (error != nil) {
+        NSLog(@"NSString can't be converted to an NSArray/NSDictionary error: %@", [error localizedDescription]);
+    }
+    return dict;
+}
+@end
 
 @implementation TwitterPlugin
 

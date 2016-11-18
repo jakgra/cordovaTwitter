@@ -9,7 +9,6 @@
     #import <Social/Social.h>
     #import <Accounts/Accounts.h>
     #import <Cordova/CDVPlugin.h>
-    #import <Cordova/CDVJSON.h>
 
 
 @interface TwitterPlugin : CDVPlugin{
